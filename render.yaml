@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: slotbot
+    env: python
+    plan: free
+    buildCommand: pip install -e . && python -c "import asyncio; from services.db.database import init_db; asyncio.run(init_db())"
+    startCommand: uvicorn services.api.app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_PHONE_NUMBER
+        sync: false
+      - key: DEEPGRAM_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: SARVAM_API_KEY
+        sync: false
+      - key: CALCOM_API_KEY
+        sync: false
+      - key: CALCOM_API_BASE
+        value: https://api.cal.com/v1
+      - key: DATABASE_URL
+        value: data/clinics.db
+      - key: ENVIRONMENT
+        value: production
+      - key: LOG_LEVEL
+        value: INFO

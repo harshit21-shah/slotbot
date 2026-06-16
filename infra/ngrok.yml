@@ -1,0 +1,8 @@
+version: "2"
+authtoken: ""   # Fill in your ngrok authtoken (https://dashboard.ngrok.com)
+tunnels:
+  slotbot:
+    proto: http
+    addr: 8000
+    inspect: true
+    bind_tls: true   # Force HTTPS (required for Twilio)

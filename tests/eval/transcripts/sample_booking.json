@@ -1,0 +1,67 @@
+[
+  {
+    "role": "agent",
+    "text": "Namaste! Dr. Sharma ki clinic mein aapka swagat hai. Main aapki virtual receptionist hoon. Aaj main aapki kaise help kar sakti hoon?",
+    "ts": 0.0
+  },
+  {
+    "role": "user",
+    "text": "Mujhe appointment chahiye",
+    "ts": 3.2
+  },
+  {
+    "role": "agent",
+    "text": "Zaroor! Aapka naam kya hai?",
+    "ts": 3.8
+  },
+  {
+    "role": "user",
+    "text": "Main Priya Mehta hoon",
+    "ts": 6.5
+  },
+  {
+    "role": "agent",
+    "text": "Priya ji, aapka shukriya! Aap kisi khaas problem ke liye aa rahi hain ya general checkup ke liye?",
+    "ts": 7.1
+  },
+  {
+    "role": "user",
+    "text": "General checkup chahiye",
+    "ts": 10.4
+  },
+  {
+    "role": "agent",
+    "text": "Theek hai! Aap kab aana chahti hain?",
+    "ts": 11.0
+  },
+  {
+    "role": "user",
+    "text": "Kal subah 10 baje",
+    "ts": 14.2
+  },
+  {
+    "role": "agent",
+    "text": "10 baje ka slot available hai. Kya main confirm kar doon — Dr. Sharma ke saath kal subah 10:00 AM. Priya ji, sahi hai na?",
+    "ts": 15.1
+  },
+  {
+    "role": "user",
+    "text": "Haan, sahi hai",
+    "ts": 18.3
+  },
+  {
+    "role": "agent",
+    "text": "Perfect! Priya ji, aapka appointment book ho gaya — Dr. Sharma ke saath, kal subah 10:00 AM. Aapko SMS aa jayega confirm details ke saath. Koi aur help chahiye?",
+    "ts": 19.2
+  },
+  {
+    "role": "user",
+    "text": "Nahi, shukriya",
+    "ts": 22.8
+  },
+  {
+    "role": "agent",
+    "text": "Shukriya Priya ji! Get well soon. Alvida!",
+    "ts": 23.4
+  }
+]

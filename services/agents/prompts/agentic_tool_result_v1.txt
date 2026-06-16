@@ -1,0 +1,8 @@
+Tool results from your last request (use these to reply naturally):
+{tool_results}
+
+Return ONLY valid JSON with your spoken response:
+{{
+  "response": "What you say to the caller (max 2 sentences)",
+  "end_call": false
+}}
