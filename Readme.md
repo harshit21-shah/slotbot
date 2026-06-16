@@ -3,16 +3,15 @@
 > Real-time voice AI receptionist for Indian clinics.
 > Speaks Hinglish. Books appointments. Never misses a call.
 
-[![CI](https://github.com/harshit21-shah/slotbot/actions/workflows/ci.yml/badge.svg)]()
-[![Latency](https://img.shields.io/badge/latency_p95-490ms-brightgreen)]()
-[![Task Completion](https://img.shields.io/badge/task_completion-91%25-brightgreen)]()
-[![Deploy](https://img.shields.io/badge/deployed-render-46E3B7)]()
+[![CI](https://github.com/harshit21-shah/slotbot/actions/workflows/ci.yml/badge.svg)](https://github.com/harshit21-shah/slotbot/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.12-blue)]()
+[![Tests](https://img.shields.io/badge/unit_tests-74_passing-brightgreen)]()
 
 ---
 
 ## Try It Live
 
-**Call: +1-xxx-xxx-xxxx** *(Twilio demo number)*
+**Call: +1-xxx-xxx-xxxx** *(Twilio demo number — configure in `.env.local`)*
 
 Say: *"Kal subah 10 baje appointment chahiye"*
 or: *"I need an appointment with Dr. Sharma tomorrow morning"*
@@ -37,7 +36,7 @@ Caller: "Kal morning mein appointment chahiye Dr. Sharma ke saath"
 [Deepgram STT, <200ms]  →  "kal morning mein appointment chahiye..."
            ↓
 [LangGraph state: COLLECT_INFO]
-[Groq Llama 3.3, <150ms]  →  "Zaroor! Aapka naam kya hai?"
+[Groq / Anthropic LLM]  →  "Zaroor! Aapka naam kya hai?"
            ↓
 [Sarvam AI TTS, <100ms]  →  audio back to caller
            ↓
@@ -47,7 +46,7 @@ Caller: "Kal morning mein appointment chahiye Dr. Sharma ke saath"
 [Twilio SMS]   →  "Appointment confirmed: Dr. Sharma, 15 June 10:00 AM"
 ```
 
-**Total call time: ~60–90 seconds. End-to-end latency per turn: ~490ms p95.**
+**Target call time: ~60–90 seconds. Target end-to-end latency per turn: ~490ms p95.**
 
 ## Architecture
 
@@ -59,14 +58,16 @@ Twilio (inbound call)
       ↓ tool calls
       Cal.com API (availability + booking)
       Twilio SMS (confirmation)
-  → Groq Llama 3.3 (generation)
+  → Groq / Anthropic LLM (generation)
   → Sarvam AI TTS (Hinglish voice)
   → audio back to Twilio → caller
 ```
 
-## Eval Results
+## Design Targets
 
-| Metric | Score |
+*Benchmark goals from the PRD — run `scripts/simulate_call.py` and `scripts/latency_bench.py` locally to measure.*
+
+| Metric | Target |
 |---|---|
 | Task completion rate (50 simulated calls) | 91% |
 | Barge-in recovery rate | 94% |
@@ -90,13 +91,8 @@ make simulate                 # test without a real phone call
 
 | File | Content |
 |---|---|
-| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | System design, WebSocket flow, latency budget |
-| [CONVERSATION_DESIGN.md](docs/CONVERSATION_DESIGN.md) | State machine, Hinglish handling, edge cases |
-| [AGENTS.md](docs/AGENTS.md) | LangGraph states, prompts, tool contracts |
-| [LATENCY.md](docs/LATENCY.md) | Latency breakdown, optimization techniques |
-| [EVALUATION.md](docs/EVALUATION.md) | Eval framework, simulated call methodology |
-| [TECH_STACK.md](docs/TECH_STACK.md) | Technology choices + rationale |
-| [API_SPEC.md](docs/API_SPEC.md) | REST + WebSocket API reference |
-| [DATABASE_SCHEMA.md](docs/DATABASE_SCHEMA.md) | SQLite schema |
-| [SECURITY.md](docs/SECURITY.md) | Patient data, PII handling, HIPAA-adjacent |
-| [DEPLOYMENT.md](docs/DEPLOYMENT.md) | Render + Twilio setup, zero-cost infra |
+| [Architechture.md](Architechture.md) | System design, WebSocket flow, latency budget |
+| [Design.md](Design.md) | State machine, Hinglish handling, edge cases |
+| [PRD.md](PRD.md) | Product vision, goals, user personas |
+| [claude.md](claude.md) | Agent conventions and dev notes |
+| [render.yaml](render.yaml) | Render deployment config |
