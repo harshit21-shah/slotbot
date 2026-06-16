@@ -27,7 +27,7 @@ dependencies = [
     "pydantic-settings>=2.3.0",
     "python-dotenv>=1.0.0",
     "python-multipart>=0.0.9",
-    "audioop-lts>=0.2.1",
+    "audioop-lts>=0.2.1; python_version>='3.13'",
 ]
 
 [project.optional-dependencies]
