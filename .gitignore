@@ -46,3 +46,6 @@ htmlcov/
 # Dev runtime logs
 .dev_server.log
 .dev_tunnel.log
+
+# Personal study notes (not for repo)
+docs/INTERVIEW_AND_TECHNICAL_GUIDE.md

@@ -91,7 +91,6 @@ make simulate                 # test without a real phone call
 
 | File | Content |
 |---|---|
-| **[Interview & Technical Guide](docs/INTERVIEW_AND_TECHNICAL_GUIDE.md)** | **Full architecture, trade-offs, failure modes, interview Q&A (basic → advanced)** |
 | [Architechture.md](Architechture.md) | System design, WebSocket flow, latency budget |
 | [Design.md](Design.md) | State machine, Hinglish handling, edge cases |
 | [PRD.md](PRD.md) | Product vision, goals, user personas |
